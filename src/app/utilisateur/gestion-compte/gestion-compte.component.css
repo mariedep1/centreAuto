@@ -1,0 +1,49 @@
+/**************
+*****TITRE*****
+ **************/
+#parameterSvg{
+  color: #004d57;
+  font-size: 50px;
+}
+h2{
+  font-weight: bold;
+  position: relative;
+}
+h2:after{
+  position: absolute;
+  content: "";
+  height: 80px;
+  width: 350px;
+  border-left: 4px solid #004d57;
+  border-bottom: 4px solid #004d57;
+  bottom:-10px;
+  left:-20px;
+}
+/**************
+**BOUTON EDIT**
+**************/
+
+#editSvg{
+  color: #004d57;
+}
+
+/***************
+***FORMULAIRE***
+***************/
+form{
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 77, 87, 0.4) 5px 5px, rgba(0, 77, 87, 0.4) 10px 10px;
+
+}
+/************
+MEDIA QUERIES
+*************/
+
+@media (max-width: 330px) {
+
+  h2:after, h2:before{
+    display: none;
+  }
+
+}

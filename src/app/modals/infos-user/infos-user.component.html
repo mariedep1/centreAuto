@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{this.user.lastname}} {{this.user.firstname}}</h4>
+  <button type="button" class="close bouton btn" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+
+  <div class="row">
+    <p>Nom: {{this.user.lastname}}</p>
+    <p>Prénom: {{this.user.firstname}}</p>
+    <p>Identifiant: {{this.user.username}}</p>
+    <p>Email: {{this.user.email}}</p>
+    <p>Numéro de téléphone: 0{{this.user.phoneNumber}}</p>
+    <p>Siret: {{this.user.siret}}</p>
+  </div>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn boutin" (click)="modal.close()">Retour aux Utilisateurs</button>
+</div>
+
+

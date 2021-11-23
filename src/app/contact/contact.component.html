@@ -1,0 +1,61 @@
+<div class="container">
+
+  <h2 class="text-center my-5">Formulaire de Contact</h2>
+  <div class="my-3">
+    <p>Particulier, veuillez indiquer la référence de l'annonce qui vous intéresse dans votre message.</p>
+    <p>Professionnel, veuillez indiquer les informations nécessaires à la création de votre compte: Nom, Prénom, Numéro de téléphone, Email et Siret</p>
+  </div>
+  <div class="row justify-content-center" id="form-contact">
+    <form class="col-lg-10 my-5" [formGroup]="contactForm" (ngSubmit)="submitForm()">
+    <div class="col-lg-10 display-text row flex-row justify-content-center my-4">
+
+      <div class="form-check col-lg-5">
+        <input class="form-check-input" type="radio" formControlName="isPro" id="professionnal" value="professionnel">
+        <label class="form-check-label" for="professionnal">
+          Professionnel
+        </label>
+      </div>
+      <div class="form-check col-lg-5">
+        <input class="form-check-input" type="radio" formControlName="isPro" id="particulier" value="particulier">
+        <label class="form-check-label" for="particulier">
+          Particulier
+        </label>
+      </div>
+    </div>
+
+      <div class="form-group">
+        <label for="contactName">Votre Nom</label>
+        <input type="text" formControlName="name" class="form-control" id="contactName">
+      </div>
+      <div *ngIf="contactForm.controls['name'].invalid && (contactForm.controls['name'].dirty || contactForm.controls['name'].touched)" class="alert alert-danger">
+        <div *ngIf="contactForm.controls['name']?.errors?.required">
+          Veuillez saisir votre nom.
+        </div>
+      </div>
+      <div class="form-group mt-4">
+        <label for="email">Votre Adresse mail</label>
+        <input type="email" formControlName="email" class="form-control" id="email">
+      </div>
+      <div *ngIf="contactForm.controls['email'].invalid && (contactForm.controls['email'].dirty || contactForm.controls['email'].touched)" class="alert alert-danger">
+        <div *ngIf="contactForm.controls['email']?.errors?.required">
+          Veuillez saisir votre email.
+        </div>
+        <div *ngIf="contactForm.controls['email']?.errors?.email">
+          Veuillez saisir votre email.
+        </div>
+      </div>
+      <div class="form-group mt-4">
+        <label for="description">Votre Message</label>
+        <textarea id="description" formControlName='message' class="form-control" ></textarea>
+      </div>
+      <div *ngIf="contactForm.controls['message'].invalid && (contactForm.controls['message'].dirty || contactForm.controls['message'].touched)" class="alert alert-danger">
+        <div *ngIf="contactForm.controls['message']?.errors?.required">
+          Veuillez saisir votre message.
+        </div>
+      </div>
+      <div class="form-group mt-4">
+        <button type="submit" class="form-control btn bouton">Envoyer votre message</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+/**************
+*****TITRE*****
+ **************/
+#parameterSvg{
+  color: #004d57;
+  font-size: 50px;
+}
+h2{
+  font-weight: bold;
+  position: relative;
+}
+h2:after{
+  position: absolute;
+  content: "";
+  height: 80px;
+  width: 350px;
+  border-left: 3px solid #004d57;
+  border-bottom: 3px solid #004d57;
+  bottom:-10px;
+  left:-20px;
+}
+
+/************
+MEDIA QUERIES
+*************/
+
+@media (max-width: 330px) {
+
+  h2:after, h2:before{
+    display: none;
+  }
+
+}

@@ -1,0 +1,66 @@
+/*****************
+BARRE DE RECHERCHE
+ ****************/
+
+#recherche {
+  background-color: #333435;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.6);
+}
+
+#recherche select {
+  background-color: #333435;
+  color: white;
+  padding: 0 15px;
+}
+.white {
+  background-color: white;
+  border: 2px solid #004d57;
+  color: #004d57;
+  font-size: 20px;
+}
+label{
+  color: white;
+}
+
+.slider{
+  width: 150px;
+}
+
+
+::ng-deep .custom-slider .ngx-slider .ngx-slider-bar {
+  background: white;
+  height: 4px;
+}
+::ng-deep .custom-slider .ngx-slider .ngx-slider-selection {
+  background: #004d57;
+}
+
+::ng-deep .custom-slider .ngx-slider .ngx-slider-pointer {
+  width: 20px;
+  height: 20px;
+  top: auto; /* to remove the default positioning */
+  bottom: -8px;
+  /*border: 50%;*/
+  background-color: #333435;
+  border: 3px solid white;
+}
+
+::ng-deep .custom-slider .ngx-slider .ngx-slider-pointer:after {
+  display: none;
+}
+
+::ng-deep .custom-slider .ngx-slider .ngx-slider-bubble {
+  bottom: 14px;
+  color: white;
+}
+
+.custom-slider p {
+  color: white;
+  margin-bottom:0;
+}
+
+::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-limit.ngx-slider-floor,
+::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-limit.ngx-slider-ceil {
+  color: white;
+  font-size: 12px;
+}

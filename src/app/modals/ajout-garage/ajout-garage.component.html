@@ -1,0 +1,69 @@
+<div class="modal-header">
+  <h4 class="modal-title"  *ngIf="!editForm">Ajouter un garage</h4>
+  <h4 class="modal-title"  *ngIf="editForm">Modifier le garage</h4>
+  <button type="button" class="close bouton btn" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="garageForm" (ngSubmit)="submitForm()">
+    <div class="form-group mb-2">
+      <label>Nom du Garage</label>
+      <input type="text" formControlName="name" name="garageName"  class="form-control" >
+    </div>
+    <div *ngIf="garageForm.controls['name'].invalid && (garageForm.controls['name'].dirty || garageForm.controls['name'].touched)" class="alert alert-danger">
+      <div *ngIf="garageForm.controls['name']?.errors?.required">
+        Veuillez saisir un nom.
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <label>Adresse</label>
+      <input type="text" formControlName="address" name="garageAddress" class="form-control" >
+    </div>
+    <div *ngIf="garageForm.controls['address'].invalid && (garageForm.controls['address'].dirty || garageForm.controls['address'].touched)" class="alert alert-danger">
+      <div *ngIf="garageForm.controls['address']?.errors?.required">
+        Veuillez saisir une adresse.
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <label>Code Postal</label>
+      <input type="text" formControlName="postcode" name="garagePostcode" class="form-control" >
+    </div>
+    <div *ngIf="garageForm.controls['postcode'].invalid && (garageForm.controls['postcode'].dirty || garageForm.controls['postcode'].touched)" class="alert alert-danger">
+      <div *ngIf="garageForm.controls['postcode']?.errors?.required">
+        Veuillez saisir un code postal.
+      </div>
+      <div *ngIf="garageForm.controls['postcode']?.errors?.pattern">
+        Code postal invalide.
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <label>Ville</label>
+      <input type="text" formControlName="city" name="garageCity" class="form-control" >
+    </div>
+    <div *ngIf="garageForm.controls['city'].invalid && (garageForm.controls['city'].dirty || garageForm.controls['city'].touched)" class="alert alert-danger">
+      <div *ngIf="garageForm.controls['city']?.errors?.required">
+        Veuillez saisir une ville.
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <label>Numéro de Téléphone</label>
+      <input type="text" formControlName="phoneNumber" name="garagePhoneNumber" class="form-control" >
+    </div>
+    <div *ngIf="garageForm.controls['phoneNumber'].invalid && (garageForm.controls['phoneNumber'].dirty || garageForm.controls['phoneNumber'].touched)" class="alert alert-danger">
+      <div *ngIf="garageForm.controls['phoneNumber']?.errors?.required">
+        Veuillez saisir un numéro de téléphone.
+      </div>
+      <div *ngIf="garageForm.controls['phoneNumber']?.errors?.pattern">
+        Veuillez saisir un numéro à dix chiffres ex: 04 65 71 02 14
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn bouton" *ngIf="!editForm">Ajouter le garage</button>
+      <button type="submit" class="btn bouton" *ngIf="editForm">Modifier le garage</button>
+    </div>
+
+  </form>
+</div>
+
+

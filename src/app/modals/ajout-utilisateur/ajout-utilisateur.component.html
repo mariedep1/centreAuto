@@ -1,0 +1,176 @@
+<div class="modal-header">
+  <h4 class="modal-title" *ngIf="!edit">Ajouter un professionnel</h4>
+  <h4 class="modal-title" *ngIf="edit">Modifier le professionnel</h4>
+
+  <button type="button" class="close bouton btn" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="addForm" (ngSubmit)="submitForm()" *ngIf="!edit">
+    <div class="form-group mb-2">
+      <label>Nom</label>
+      <input type="text" formControlName="lastname" name="lastname" class="form-control" >
+    </div>
+    <div *ngIf="addForm.controls['lastname'].invalid && (addForm.controls['lastname'].dirty || addForm.controls['lastname'].touched)" class="alert alert-danger">
+      <div *ngIf="addForm.controls['lastname']?.errors?.required">
+        Veuillez saisir le nom.
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <label>Prénom</label>
+      <input type="text" formControlName="firstname" name="firstname" class="form-control" >
+    </div>
+    <div *ngIf="addForm.controls['firstname'].invalid && (addForm.controls['firstname'].dirty || addForm.controls['firstname'].touched)" class="alert alert-danger">
+      <div *ngIf="addForm.controls['firstname']?.errors?.required">
+        Veuillez saisir le prénom.
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <label>Identifiant</label>
+      <input type="text" formControlName="username" name="username" class="form-control" >
+    </div>
+    <div *ngIf="addForm.controls['username'].invalid && (addForm.controls['username'].dirty || addForm.controls['username'].touched)" class="alert alert-danger">
+      <div *ngIf="addForm.controls['username']?.errors?.required">
+        Veuillez saisir l'identifiant.
+      </div>
+      <div *ngIf="addForm.controls['username']?.errors?.usernameUnique">
+        Identifiant déjà utilisé.
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <label>Siret</label>
+      <input type="text" formControlName="siret"  name="siret" class="form-control" >
+    </div>
+    <div *ngIf="addForm.controls['siret'].invalid && (addForm.controls['siret'].dirty || addForm.controls['siret'].touched)" class="alert alert-danger">
+      <div *ngIf="addForm.controls['siret']?.errors?.required">
+        Veuillez saisir le siret.
+      </div>
+      <div *ngIf="addForm.controls['siret']?.errors?.pattern">
+        Siret non conforme
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <label>Numéro de téléphone</label>
+      <input type="text" formControlName="phone" name="phone" class="form-control" >
+    </div>
+    <div *ngIf="addForm.controls['phone'].invalid && (addForm.controls['phone'].dirty || addForm.controls['phone'].touched)" class="alert alert-danger">
+      <div *ngIf="addForm.controls['phone']?.errors?.required">
+        Veuillez saisir un numéro de téléphone.
+      </div>
+      <div *ngIf="addForm.controls['phone']?.errors?.pattern">
+        euillez saisir un numéro à dix chiffres ex: 04 65 71 02 14
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <label>Email</label>
+      <input type="email" formControlName="email" name="email" class="form-control" >
+    </div>
+    <div *ngIf="addForm.controls['email'].invalid && (addForm.controls['email'].dirty || addForm.controls['email'].touched)" class="alert alert-danger">
+      <div *ngIf="addForm.controls['email']?.errors?.required">
+        Veuillez saisir un email
+      </div>
+      <div *ngIf="addForm.controls['email']?.errors?.email">
+        Email invalide
+      </div>
+      <div *ngIf="addForm.controls['email']?.errors?.emailUnique">
+        Email déjà existant
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <label>Mot de Passe</label>
+      <input type="text" formControlName="password" name="password" class="form-control" >
+    </div>
+    <div *ngIf="addForm.controls['password'].invalid && (addForm.controls['password'].dirty || addForm.controls['password'].touched)" class="alert alert-danger">
+      <div *ngIf="addForm.controls['password']?.errors?.required">
+        Veuillez saisir un mot de passe.
+      </div>
+      <div *ngIf="addForm.controls['password']?.errors?.minLength">
+        Veuillez saisir un mot de passe d'au moins 6 caractères
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn bouton">Ajouter le professionnel</button>
+
+    </div>
+
+  </form>
+  <form [formGroup]="editForm" (ngSubmit)="submitForm()" *ngIf="edit">
+    <div class="form-group mb-2">
+      <label>Nom</label>
+      <input type="text" formControlName="lastname" name="lastname" class="form-control" >
+    </div>
+    <div *ngIf="editForm.controls['lastname'].invalid && (editForm.controls['lastname'].dirty || editForm.controls['lastname'].touched)" class="alert alert-danger">
+      <div *ngIf="editForm.controls['lastname']?.errors?.required">
+        Veuillez saisir le nom.
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <label>Prénom</label>
+      <input type="text" formControlName="firstname" name="firstname" class="form-control" >
+    </div>
+    <div *ngIf="editForm.controls['firstname'].invalid && (editForm.controls['firstname'].dirty || editForm.controls['firstname'].touched)" class="alert alert-danger">
+      <div *ngIf="editForm.controls['firstname']?.errors?.required">
+        Veuillez saisir le prénom.
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <label>Identifiant</label>
+      <input type="text" formControlName="username" name="username" class="form-control" >
+    </div>
+    <div *ngIf="editForm.controls['username'].invalid && (editForm.controls['username'].dirty || editForm.controls['username'].touched)" class="alert alert-danger">
+      <div *ngIf="editForm.controls['username']?.errors?.required">
+        Veuillez saisir l'identifiant'.
+      </div>
+      <div *ngIf="editForm.controls['username']?.errors?.usernameUnique">
+        Identifiant déjà utilisé.
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <label>Siret</label>
+      <input type="text" formControlName="siret"  name="siret" class="form-control" >
+    </div>
+    <div *ngIf="editForm.controls['siret'].invalid && (editForm.controls['siret'].dirty || editForm.controls['siret'].touched)" class="alert alert-danger">
+      <div *ngIf="editForm.controls['siret']?.errors?.required">
+        Veuillez saisir le siret.
+      </div>
+      <div *ngIf="editForm.controls['siret']?.errors?.pattern">
+        Siret non conforme
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <label>Numéro de téléphone</label>
+      <input type="text" formControlName="phone" name="phone" class="form-control" >
+    </div>
+    <div *ngIf="editForm.controls['phone'].invalid && (editForm.controls['phone'].dirty || editForm.controls['phone'].touched)" class="alert alert-danger">
+      <div *ngIf="editForm.controls['phone']?.errors?.required">
+        Veuillez saisir un numéro de téléphone.
+      </div>
+      <div *ngIf="editForm.controls['phone']?.errors?.pattern">
+        euillez saisir un numéro à dix chiffres ex: 04 65 71 02 14
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <label>Email</label>
+      <input type="email" formControlName="email" name="email" class="form-control" >
+    </div>
+    <div *ngIf="editForm.controls['email'].invalid && (editForm.controls['email'].dirty || editForm.controls['email'].touched)" class="alert alert-danger">
+      <div *ngIf="editForm.controls['email']?.errors?.required">
+        Veuillez saisir un email
+      </div>
+      <div *ngIf="editForm.controls['email']?.errors?.email">
+        Email invalide
+      </div>
+      <div *ngIf="editForm.controls['email']?.errors?.emailUnique">
+        Email déjà existant
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn bouton">Modifier le professionnel</button>
+    </div>
+
+  </form>
+</div>
+
+
+

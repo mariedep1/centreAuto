@@ -1,0 +1,8 @@
+<ul>
+  <li><img src="{{car.photos[0].path}}" alt=""></li>
+  <li>{{car.title}}</li>
+  <li>Voiture de la marque {{car.model.brand.name}}, modèle {{car.model.name}}</li>
+  <li>{{car.price}}€</li>
+  <li><a [routerLink]="['/annonce', car.id]"> En savoir plus</a></li>
+</ul>
+

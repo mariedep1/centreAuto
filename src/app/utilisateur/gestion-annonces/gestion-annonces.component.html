@@ -1,0 +1,43 @@
+<div class="container-lg">
+
+  <div class="container">
+
+    <nav aria-label="breadcrumb" class="my-5">
+      <ol class="breadcrumb bg-transparent">
+        <li class="breadcrumb-item"><a routerLink="/annonces">Accueil</a></li>
+        <li class="breadcrumb-item"><a routerLink="/profil">Mon profil</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Gérer mes Annonces</li>
+      </ol>
+    </nav>
+
+    <h2 class="mb-5"><fa-icon [icon]='faPaper' id="parameterSvg" class="mr-2"></fa-icon>Gérer mes Annonces</h2>
+    <div class="mb-3 text-end">
+      <button class="btn bouton" routerLink="/annonce/nouvelle">Ajouter une Annonce</button>
+    </div>
+    <div class="table-responsive">
+      <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Référence</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Modèle</th>
+        <th scope="col">Garage</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let car of cars">
+        <td>{{car.id}}</td>
+        <td>{{car.title}}</td>
+        <td>{{car.model.name}}</td>
+        <td>{{car.garage.name}}</td>
+        <td><button class="btn btn-warning text-center" (click)="openCarModal(car)">Modifier l'annonce</button></td>
+        <td><button class="btn btn-danger text-center" (click)="deleteCar(car.id)">Supprimer l'annonce</button></td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+

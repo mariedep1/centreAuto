@@ -1,0 +1,29 @@
+/**************
+*****TITRE*****
+ **************/
+#parameterSvg{
+  color: #004d57;
+  font-size: 50px;
+}
+h2{
+  font-weight: bold;
+  position: relative;
+}
+h2:after{
+  position: absolute;
+  content: "";
+  height: 80px;
+  width: 350px;
+  border-left: 3px solid #004d57;
+  border-bottom: 3px solid #004d57;
+  bottom:-10px;
+  left:-20px;
+}
+.photos{
+  height: 200px;
+  width: auto;
+  margin: 5px;
+}
+.photos:hover{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

@@ -1,0 +1,51 @@
+
+<div class="container-lg mt-5">
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-transparent">
+      <li class="breadcrumb-item"><a routerLink="/annonces">Accueil</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Annonce n°{{car.id}}</li>
+    </ol>
+  </nav>
+
+  <section id="informations" class="row justify-content-around">
+
+    <ngb-carousel *ngIf="images" class="col-7">
+      <ng-template ngbSlide *ngFor="let i of car.photos">
+        <div class="picsum-img-wrapper">
+          <img src="{{i.path}}" alt="Photo de voiture {{car.model.brand.name}}{{car.model}}">
+        </div>
+      </ng-template>
+    </ngb-carousel>
+
+    <ul class="col-2  d-flex flex-column justify-content-around align-items-center text-capitalize">
+      <li>{{car.model.brand.name}}</li>
+      <li><fa-icon [icon]='faCar' class="icon"></fa-icon></li>
+      <li>{{car.model.name}}</li>
+      <li><fa-icon [icon]='faCalendar' class="icon"></fa-icon></li>
+      <li>{{car.year}}</li>
+      <li><fa-icon [icon]='faRoad' class="icon"></fa-icon></li>
+      <li>{{car.kilometers}} km</li>
+      <li><fa-icon [icon]='faGas' class="icon"></fa-icon></li>
+      <li>{{car.fuel.name}}</li>
+    </ul>
+  </section>
+
+
+  <section id="description">
+
+    <ul>
+      <li class="text-center reference"> Annonce n°{{car.id}}</li>
+      <li><h2>{{car.title}}</h2></li>
+      <li><h3>Description</h3></li>
+      <li class="text-center">{{car.description}}</li>
+      <li class="text-center"><fa-icon [icon]='faMoney' class="icon m-auto money"> </fa-icon><span class="price">{{car.price}} €</span><fa-icon [icon]='faMoney' class="icon m-auto money"> </fa-icon></li>
+    </ul>
+  </section>
+
+
+
+
+
+</div>
+

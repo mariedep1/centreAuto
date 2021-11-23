@@ -1,0 +1,84 @@
+<div class="container-lg">
+
+<!--fil d'ariane-->
+  <nav aria-label="breadcrumb" class="my-5">
+    <ol class="breadcrumb bg-transparent">
+      <li class="breadcrumb-item"><a routerLink="/annonces">Accueil</a></li>
+      <li class="breadcrumb-item"><a routerLink="/profil">Mon profil</a></li>
+      <li class="breadcrumb-item"><a routerLink="/profil/annonces">Gérer mes Annonces</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Nouvelle Annonce</li>
+    </ol>
+  </nav>
+
+  <h2 class="my-5"><fa-icon [icon]='faPaper' id="parameterSvg"></fa-icon> Nouvelle Annonce</h2>
+
+<!--formulaire d'ajout d'annonces-->
+  <div class="row justify-content-center">
+
+    <div class="form-group col-lg-8" >
+      <label for="brand">Marque de la voiture</label>
+      <select name="mybrand" id="brand" [(ngModel)]="brand" (change)="onChange()" class="form-control" >
+        <option *ngFor=" let brand of brands" value="{{brand['id']}}">{{brand['name']}}</option>
+      </select>
+    </div>
+
+    <form [formGroup]='carForm' (ngSubmit)="addAd()" class="col-lg-8">
+    <div class="form-group mb-2">
+      <label for="model">Modèle</label>
+      <select name="model" id="model" formControlName='model' class="form-control">
+        <option *ngFor=" let model of models" value="{{model['id']}}">{{model['name']}}</option>
+      </select>
+    </div>
+    <div class="form-group mb-2">
+      <label for="adTitle">Titre</label>
+      <input type="text" id="adTitle" formControlName='title' class="form-control">
+    </div>
+    <div class="form-group mb-2">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName='description' class="form-control"></textarea>
+    </div>
+
+    <div class="form-group mb-2">
+      <label for="carDate">Année de fabrication</label>
+      <input type="date" id="carDate" formControlName='year' class="form-control">
+    </div>
+    <div class="form-group mb-2">
+      <label for="kilometers">Kilométrage</label>
+      <input type="number" id="kilometers" formControlName='kilometers' class="form-control">
+    </div>
+    <div class="form-group mb-2">
+      <label for="price">Prix de la voiture</label>
+      <input type="number" id="price" formControlName='price' class="form-control">
+    </div>
+
+    <div class="form-group mb-2">
+      <label for="fuel">Carburant</label>
+      <select name="fuel" id="fuel" formControlName='fuel' class="form-control">
+        <option *ngFor=" let fuel of fuels" value="{{fuel['id']}}">{{fuel['name']}}</option>
+      </select>
+    </div>
+    <div class="form-group mb-2">
+      <label for="garage">Garage</label>
+      <select name="garage" id="garage" formControlName='garage_id' class="form-control">
+        <option *ngFor=" let garage of garages" value="{{garage.id}}">{{garage.name}}</option>
+      </select>
+    </div>
+
+    <div *ngIf="display" class="mb-2  d-flex flex-row flex-wrap" id="display-image">
+      <p class="w-100">Pour supprimez une photo, cliquez dessus.</p>
+      <img *ngFor="let image of images" [src]="image" class="photos" (click)="removeImage(image)">
+    </div>
+
+    <div class="form-group mb-2">
+      <label for="photos">Veuillez choisir 4 photos maximum</label>
+      <input type="file" multiple name="photos" id="photos"  accept="image/*"  formControlName="photos" class="form-control" (change)="onFileChange($event)">
+    </div>
+
+    <div class="form-group mb-4">
+      <button type="submit" class="form-control btn bouton">Ajouter</button>
+    </div>
+  </form>
+
+  </div>
+
+</div>

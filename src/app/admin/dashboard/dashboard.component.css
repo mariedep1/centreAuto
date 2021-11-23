@@ -1,0 +1,17 @@
+/****
+TITLE
+ ***/
+h2{
+  font-weight: bold;
+  position: relative;
+  border-left: #004d57 3px solid;
+  padding-left: 5px;
+}
+
+.infosAdmin{
+  color: white;
+  background: rgba(0, 77, 87, 0.86);
+}
+.userAdd{
+  border: #004d57 solid 2px;
+}

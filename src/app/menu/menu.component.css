@@ -1,0 +1,89 @@
+header {
+  border-bottom: 3px solid #004d57;
+  font-family: "lato", sans-serif;
+}
+
+header nav {
+  padding: 0 50px;
+}
+
+header nav img {
+  width: 80px;
+  border: 2px solid #004d57;
+}
+
+header nav ul li a {
+  color: inherit;
+}
+
+/****************
+effet hover liens
+*****************/
+header nav ul li::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+header nav ul li:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+header nav ul li::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 0 0 0 0;
+  background: #004d57;
+  z-index: -1;
+  transition: transform .4s ease;
+}
+
+
+header nav ul li {
+  font-size: 24px;
+  color: #004d57;
+  position: relative;
+}
+
+header nav ul li:hover{
+  color: white;
+}
+
+/***** effet hover liens *******/
+
+header nav #connexion, header nav .connected {
+  color: #004d57;
+  font-size: 50px;
+}
+
+/***********************
+****Menu Burger*****
+***********************/
+.navbar .navbar-toggler-icon {
+  background: #004d57;
+  border-radius: 5px;
+  width: 40px;
+  height: 5px;
+  position: relative;
+}
+
+.navbar .navbar-toggler-icon::before, .navbar .navbar-toggler-icon::after {
+  content: "";
+  background: transparent;
+  border: 1px solid #004d57;
+  border-radius: 5px;
+  width: 40px;
+  height: 5px;
+  position: absolute;
+  left: 0;
+}
+
+.navbar .navbar-toggler-icon::before {
+  top: -10px;
+}
+
+.navbar .navbar-toggler-icon::after {
+  top: 10px;
+}

@@ -1,0 +1,8 @@
+#banniere {
+  padding: 20px 0 200px;
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('/assets/images/banniere.jpg');
+  background-position: center;
+  background-size: cover;
+  font-size: 32px;
+  margin: 0 auto;
+}

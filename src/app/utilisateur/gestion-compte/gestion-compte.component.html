@@ -1,0 +1,51 @@
+
+<div class="container">
+
+  <nav aria-label="breadcrumb" class="my-5">
+    <ol class="breadcrumb bg-transparent">
+      <li class="breadcrumb-item"><a routerLink="/annonces">Accueil</a></li>
+      <li class="breadcrumb-item"><a routerLink="/profil">Mon profil</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Gérer mon compte</li>
+    </ol>
+  </nav>
+
+  <h2 class="mb-5"><fa-icon [icon]='faCog' id="parameterSvg" class="mr-2"></fa-icon>Gérer mon compte</h2>
+
+  <div class="text-center">
+    <button class="btn btn-light" (click)="showInput()">Modifier mes informations personnelles <fa-icon [icon]="faEdit" id="editSvg"></fa-icon></button>
+  </div>
+
+  <form *ngIf="this.user" [formGroup]="userForm" (ngSubmit)="editUser()">
+
+    <div class="form-group mb-3">
+      <label>Nom</label>
+      <input type="text" name="lastname" formControlName="lastname" class="form-control" [readOnly]="isReadOnly">
+    </div>
+    <div class="form-group mb-3">
+      <label>Prénom</label>
+      <input type="text" name="firstname" formControlName="firstname"  class="form-control" [readOnly]="isReadOnly">
+    </div>
+    <div class="form-group mb-3">
+      <label>Email</label>
+      <input type="email" name="email" formControlName="email"  class="form-control" [readOnly]="isReadOnly">
+    </div>
+    <div class="form-group mb-3">
+      <label>Siret</label>
+      <input type="text" name="siret" formControlName="siret"  class="form-control" [readOnly]="isReadOnly">
+    </div>
+    <div class="form-group mb-3">
+      <label>Numéro de téléphone</label>
+      <input type="text" name="phoneNumber" formControlName="phone" class="form-control" [readOnly]="isReadOnly">
+    </div>
+
+    <div class=" text-center" *ngIf="!isReadOnly">
+      <button type="submit" class="btn bouton" >Enregistrer les modifications</button>
+    </div>
+  </form>
+
+
+
+</div>
+
+
+

@@ -1,0 +1,117 @@
+<div class="modal-header">
+  <h4 class="modal-title" >Modifier l'annonce</h4>
+  <button type="button" class="close bouton btn" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+
+  <div class="row justify-content-center" *ngIf="infos">
+    <div class="card col-lg-10 shadow">
+        <h3 class="text-center mb-2">Annonce n°{{car.id}}</h3>
+        <ul>
+          <li class=" mb-1"><span class="infos">Titre:</span> {{car.title}}</li>
+          <li class=" mb-1"><span class="infos">Description:</span> {{car.description}}</li>
+          <li class=" mb-1"><span class="infos">Année:</span> {{car.year}}</li>
+          <li class=" mb-1"><span class="infos">Kilomètres: </span>{{car.kilometers}} km</li>
+          <li class=" mb-1"><span class="infos">Prix:</span> {{car.price}}€</li>
+          <li class=" mb-1"><span class="infos">Modèle: </span>{{car.model.name}}</li>
+          <li class=" mb-1"><span class="infos">Marque: </span>{{car.model.brand.name}}</li>
+          <li class=" mb-1"><span class="infos">Carburant: </span>{{car.fuel.name}}</li>
+          <div class="text-center">
+            <button class="btn btn-light btn-sm" (click)="showInput('info')">Modifier les informations <fa-icon [icon]="faEdit" ></fa-icon></button>
+          </div>
+        </ul>
+    </div>
+    <div class="col-lg-10 row">
+      <img *ngFor="let image of car.photos" src="{{image.path}}" class="col-4">
+    </div>
+    <div class="text-center">
+      <button class="btn btn-light btn-sm" (click)="showInput('photo')">Modifier les photos <fa-icon [icon]="faEdit"></fa-icon></button>
+    </div>
+  </div>
+
+
+  <div *ngIf="editInfos" (submit)="submitInfos()">
+    <div class="form-group col-lg-8" >
+      <label for="brand">Marque de la voiture</label>
+      <select name="mybrand" id="brand" [(ngModel)]="brand" (change)="onChange()" class="form-control" >
+        <option *ngFor=" let brand of brands" value="{{brand['id']}}">{{brand['name']}}</option>
+      </select>
+    </div>
+    <form [formGroup]="adForm">
+      <div class="form-group mb-2">
+        <label for="model">Modèle</label>
+        <select name="model" id="model" formControlName='model' class="form-control">
+          <option *ngFor=" let model of models" value="{{model['id']}}">{{model['name']}}</option>
+        </select>
+      </div>
+      <div class="form-group mb-2">
+        <label for="adTitle">Titre</label>
+        <input type="text" id="adTitle" formControlName='title' class="form-control">
+      </div>
+      <div class="form-group mb-2">
+        <label for="description">Description</label>
+        <textarea id="description" formControlName='description' class="form-control"></textarea>
+      </div>
+
+      <div class="form-group mb-2">
+        <label for="carDate">Année de fabrication</label>
+        <input type="date" id="carDate" formControlName='year' class="form-control">
+      </div>
+      <div class="form-group mb-2">
+        <label for="kilometers">Kilométrage</label>
+        <input type="number" id="kilometers" formControlName='kilometers' class="form-control">
+      </div>
+      <div class="form-group mb-2">
+        <label for="price">Prix de la voiture</label>
+        <input type="number" id="price" formControlName='price' class="form-control">
+      </div>
+      <div class="form-group mb-2">
+        <label for="fuel">Carburant</label>
+        <select name="fuel" id="fuel" formControlName='fuel' class="form-control">
+          <option *ngFor=" let fuel of fuels" value="{{fuel['id']}}" [selected]="car.fuel == fuel['id'] ">{{fuel['name']}}</option>
+        </select>
+      </div>
+      <div class="form-group mb-2">
+        <label for="garage">Garage</label>
+        <select name="garage" id="garage" formControlName='garage_id' class="form-control">
+          <option *ngFor=" let garage of garages" value="{{garage.id}}">{{garage.name}}</option>
+        </select>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn bouton" >Modifier l'annonce'</button>
+      </div>
+    </form>
+
+
+  </div>
+  <form [formGroup]="photoForm" *ngIf="editPhoto" (submit)="submitPhoto()">
+
+    <div class="row mb-4">
+      <p>Photos de l'annonce</p>
+      <div class="col-lg-4 text-center" *ngFor="let image of car.photos">
+        <img src="{{image.path}}" width="200px">
+        <button class="btn btn-sm btn-outline-warning" (click)="deleteImage(image.id)">Supprimer la photo</button>
+      </div>
+    </div>
+
+    <div class="form-group mb-2">
+      <label for="photos">4 photos par annonce maximum</label>
+      <input type="file" multiple name="photos" id="photos"  accept="image/*"  formControlName="photos" class="form-control" (change)="onFileChange($event)">
+    </div>
+
+    <div *ngIf="display" class="mb-2  d-flex flex-row flex-wrap" id="display-image">
+      <p class="w-100">Pour supprimez une photo, cliquez dessus.</p>
+      <img *ngFor="let image of images" [src]="image" class="photos" (click)="removeImage(image)">
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn bouton" >Modifier les photos</button>
+    </div>
+  </form>
+</div>
+
+
+

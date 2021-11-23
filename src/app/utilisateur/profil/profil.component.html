@@ -1,0 +1,39 @@
+
+<div class="container p-5">
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-transparent">
+      <li class="breadcrumb-item"><a routerLink="">Accueil</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Mon Profil</li>
+    </ol>
+  </nav>
+
+  <div class="infos">
+    <h2 class="mb-5"><fa-icon [icon]='faUser' id="connexionSvg" class="mr-2"></fa-icon>Mon profil</h2>
+
+    <p class="text-center m-auto w-75">Bienvenue dans votre espace "mon profil", vous pouvez accéder aux différentes fonctionnalités de votre compte
+      professionnel en un clic ci-dessous</p>
+
+    <div class="row justify-content-between mt-5">
+      <section id="compte" class="col-lg-3 mb-5 mb-lg-0">
+        <h3>Gérer mon compte</h3>
+        <a routerLink="/profil/compte"><fa-icon [icon]='faCog' id="paramSvg"></fa-icon></a>
+      </section>
+      <section id="garages" class="col-lg-3 mb-5 mb-lg-0">
+        <h3>Gérer mes garages</h3>
+        <a routerLink="/profil/garages"><fa-icon [icon]='faCar' id="garageSvg"></fa-icon></a>
+      </section>
+      <section id="annonces" class="col-lg-3 mb-5 mb-lg-0">
+        <h3>Gérer mes annonces</h3>
+        <a [routerLink]="['/profil/annonces']"><fa-icon [icon]='faPaper' id="annonceSvg"></fa-icon></a>
+      </section>
+    </div>
+    <div class="text-center">
+      <button class="btn mt-lg-5" (click)="deconnect()">Déconnexion</button>
+    </div>
+  </div>
+</div>
+
+
+
+

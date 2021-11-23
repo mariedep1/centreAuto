@@ -1,0 +1,77 @@
+/**************
+*****TITLE*****
+ **************/
+#connexionSvg{
+  color: #004d57;
+  font-size: 50px;
+}
+h2{
+  font-weight: bold;
+  margin-left: 20px;
+  position: relative;
+}
+h2:after{
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 140px;
+  border-left: 3px solid #004d57;
+  border-bottom: 3px solid #004d57;
+  bottom:-10px;
+  left:-20px;
+}
+h2:before{
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 140px;
+  border-right: 3px solid #004d57;
+  border-top: 3px solid #004d57;
+  top:-5px;
+  left:90px;
+}
+
+/***************
+****SECTIONS****
+ **************/
+
+#compte, #garages, #annonces{
+  border: #004d57 2px solid;
+  border-radius: 5px;
+  padding: 30px;
+  text-align: center;
+
+  box-shadow: #004d57 6px 6px;
+}
+/***Section Compte***/
+#paramSvg, #garageSvg, #annonceSvg{
+  color: #333435;
+  font-size: 40px;
+}
+
+/*****************
+BOUTON DECONNEXION
+******************/
+button{
+  background: #004d57;
+  color: white;
+}
+button:hover{
+  background: white;
+  color: #004d57;
+  border-radius: 5px;
+  border: 1px solid #004d57;
+  font-weight: bold;
+}
+
+/************
+MEDIA QUERIES
+*************/
+
+@media (max-width: 330px) {
+
+  h2:after, h2:before{
+    display: none;
+  }
+
+}

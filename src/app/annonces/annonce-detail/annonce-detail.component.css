@@ -1,0 +1,72 @@
+/***********************
+***CLASSES GENERALES***
+ **********************/
+.icon{
+  color: #004d57;
+}
+
+/***********************
+**SECTION INFORMATIONS**
+ **********************/
+
+#informations ul{
+  border: 2px solid #004d57;
+  border-radius: 5px;
+}
+
+#informations ul li {
+  text-transform: capitalize;
+  font-size: 18px;
+}
+
+/***********************
+**SECTION DESCRIPTION***
+ **********************/
+#description ul{
+  padding: 0px 50px;
+}
+#description ul li{
+  margin: 20px 0px;
+}
+#description ul li h2, #description ul li:first-of-type{
+  font-size: 20px;
+}
+#description ul li h2{
+  color: #004d57;
+}
+#description ul li h3{
+  font-size: 18px;
+}
+.price{
+  font-size: 30px;
+  margin: 0px 10px;
+}
+.money{
+  font-size: 30px;
+}
+
+.picsum-img-wrapper img{
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  -webkit-object-fit: cover;
+}
+/****************
+REFERENCE ANNONCE
+****************/
+.reference{
+  font-weight: bold;
+  margin-left: 20px;
+  position: relative;
+}
+.reference:after{
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 140px;
+  border-left: 3px solid #004d57;
+  border-bottom: 3px solid #004d57;
+  bottom:-10px;
+  left:400px;
+}
+

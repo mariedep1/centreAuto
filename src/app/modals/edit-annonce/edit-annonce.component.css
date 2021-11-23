@@ -1,0 +1,14 @@
+span.infos{
+  color: #004d57;
+}
+ul>li{
+  font-size: 15px;
+}
+.photos{
+  height: 200px;
+  width: auto;
+  margin: 5px;
+}
+.photos:hover{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

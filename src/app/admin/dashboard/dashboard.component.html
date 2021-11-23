@@ -1,0 +1,135 @@
+<div class="container">
+
+  <nav aria-label="breadcrumb" class="my-5">
+    <ol class="breadcrumb bg-transparent">
+      <li class="breadcrumb-item"><a routerLink="">Accueil</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Tableau de bord</li>
+    </ol>
+  </nav>
+
+  <h2>Tableau de bord administrateur</h2>
+
+  <div class="row mt-5 align-items-lg-stretch justify-content-around">
+
+    <section class="col-lg-5" *ngIf="this.infos">
+      <div class="card infosAdmin">
+        <div class="card-body">
+          <h5 class="card-title">Informations Globales </h5>
+          <p class="card-text">Nombre de professionnels enregistrés : {{this.infos['users']}}</p>
+          <p class="card-text">Nombre de garages enregistrés : {{this.infos['garages']}}</p>
+          <p class="card-text">Nombre de annonces déposées : {{this.infos['ads']}} </p>
+        </div>
+      </div>
+    </section>
+    <section class="col-lg-5">
+      <div class="card userAdd">
+        <div class="card-body text-center">
+          <h5 class="card-title">Nouvelle Utilisateur</h5>
+          <button class="btn bouton mt-3" (click)="openAjoutUtilisateur()">Ajouter un utilisateur</button>
+        </div>
+      </div>
+    </section>
+  </div>
+    <h3 class="mt-5" *ngIf="displayAnnonces">Liste d'annonces</h3>
+    <h3 class="mt-5" *ngIf="displayUtilisateurs">Liste des Professionnels</h3>
+    <h3 class="mt-5" *ngIf="displayGarages">Liste des Garages</h3>
+
+
+    <div class="mt-2">
+      <button class="btn bouton me-1" *ngIf="!displayUtilisateurs" (click)="showUsers()">Professionnels</button>
+      <button class="btn bouton me-1" *ngIf="!displayGarages" (click)="showGarages()">Garages</button>
+      <button class="btn bouton" *ngIf="!displayAnnonces" (click)="showCars()">Annonces</button>
+    </div>
+
+
+
+<div>
+  <section class="mt-3">
+    <div class="table-responsive" *ngIf="displayUtilisateurs">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Nom Prénom</th>
+          <th scope="col">Téléphone</th>
+          <th scope="col">Siret</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users; index as i;">
+          <td>{{i+1}}</td>
+          <td>{{user.lastname}} {{user.firstname}}</td>
+          <td>0{{user.phoneNumber}}</td>
+          <td>{{user.siret}}</td>
+          <td><button class="btn btn-primary" (click)="openInfoUtilisateur(user)">Voir</button></td>
+          <td><button class="btn btn-warning" (click)="openEditUtilisateur(user)">Modifier</button></td>
+          <td><button class="btn btn-danger" (click)="deleteUser(user.id)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-responsive" *ngIf="displayGarages">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Nom</th>
+          <th scope="col">Numéro de téléphone</th>
+          <th scope="col">Adresse</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let garage of garages;  index as i;">
+          <td>{{i+1}}</td>
+          <td>{{garage.name}}</td>
+          <td>{{garage.phoneNumber}}</td>
+          <td>{{garage.address}}<br>{{garage.postcode}}<br>{{garage.city}} </td>
+          <td><button class="btn btn-primary" (click)="openInfoGarage(garage)">Voir</button></td>
+          <td><button class="btn btn-warning" (click)="openEditGarage(garage)">Modifier</button></td>
+          <td><button class="btn btn-danger" (click)="deleteGarage(garage.id)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-responsive" *ngIf="displayAnnonces">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Référence</th>
+          <th scope="col">Titre</th>
+          <th scope="col">Modèle</th>
+          <th scope="col">Garage</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let car of cars;">
+          <td>{{car.id}}</td>
+          <td>{{car.title}}</td>
+          <td>{{car.model.name}}</td>
+          <td>{{car.garage.name}}</td>
+          <td><a class="btn btn-primary" [routerLink]="['/annonce', car.id]">Voir</a></td>
+          <td><button class="btn btn-warning" (click)="openEditAnnonce(car)">Modifier</button></td>
+          <td><button class="btn btn-danger" (click)="deleteAnnonce(car.id)">Supprimer</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+
+</div>
+</div>

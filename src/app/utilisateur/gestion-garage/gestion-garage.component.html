@@ -1,0 +1,42 @@
+<div class="container-lg">
+
+  <div class="container">
+
+    <nav aria-label="breadcrumb" class="my-5">
+      <ol class="breadcrumb bg-transparent">
+        <li class="breadcrumb-item"><a routerLink="/annonces">Accueil</a></li>
+        <li class="breadcrumb-item"><a routerLink="/profil">Mon profil</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Gérer mes Garages</li>
+      </ol>
+    </nav>
+
+    <h2 class="mb-5"><fa-icon [icon]='faCar' id="parameterSvg" class="mr-2"></fa-icon>Gérer mes Garages</h2>
+   <div class="mb-3 text-end">
+     <button class="btn bouton" (click)="openAjoutGarage()">Ajouter un Garage</button>
+   </div>
+    <div class="table-responsive">
+      <table class="table">
+    <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Nom</th>
+      <th scope="col">Numéro de téléphone</th>
+      <th scope="col">Adresse</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let garage of garages; index as i;">
+      <td>{{i + 1}}</td>
+      <td>{{garage.name}}</td>
+      <td>{{garage.phoneNumber}}</td>
+      <td>{{garage.address}}<br>{{garage.postcode}}<br>{{garage.city}} </td>
+      <td><button class="btn btn-warning text-center" (click)="openEditGarage(garage)">Modifier le garage</button></td>
+      <td><button class="btn btn-danger text-center" (click)="deleteGarage(garage.id)">Supprimer le garage</button></td>
+    </tr>
+    </tbody>
+  </table>
+    </div>
+</div>
+</div>

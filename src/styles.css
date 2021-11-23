@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:wght@400;700;900&display=swap");
+
+* {
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  /* transition: all .2s ease 0s; */
+  /* Visualisation des éléments */
+  /*border: 1px dotted rgba(0,0,0,0.3);*/
+}
+
+*:hover {
+  transition: all 0.2s ease 0s;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  font-family: "Roboto", sans-serif;
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/**********************
+****CLASSE GENERALE****
+ *********************/
+.bouton{
+  background: #004d57;
+  color: white;
+}
+.bouton:hover{
+  background: none;
+  color:#004d57;
+  box-shadow: rgba(0, 77, 87, 0.4) 5px 5px, rgba(0, 77, 87, 0.4) 10px 10px;
+}

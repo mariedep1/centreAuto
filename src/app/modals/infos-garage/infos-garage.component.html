@@ -1,0 +1,22 @@
+<div class="modal-header">
+  <h4 class="modal-title">Garage {{this.garage.name}}</h4>
+  <button type="button" class="close bouton btn" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+
+  <div class="row">
+    <p>Nom: {{this.garage.name}}</p>
+    <p>Adresse {{this.garage.address}}</p>
+    <p>Code Postale: {{this.garage.postcode}}</p>
+    <p>Ville: {{this.garage.city}}</p>
+    <p>Numéro de téléphone: 0{{this.garage.phoneNumber}}</p>
+  </div>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn boutin" (click)="modal.close()">Retour aux Garages</button>
+</div>
+
+
